@@ -73,3 +73,47 @@ export const columnsDataComplex = [
     accessor: "progress",
   },
 ];
+
+
+export const userDataComplex = [
+  {
+    Header: "Name",
+    accessor: "name",
+  },
+  {
+    Header: "Email",
+    accessor: "email",
+  },
+  {
+    Header: "Contact Number",
+    accessor: "contactnumber",
+  },
+  {
+    Header: "Role ID",
+    accessor: "role_id",
+  },
+  {
+    Header: "Status",
+    accessor: "status",
+  },
+  {
+    Header: "Created At",
+    accessor: "created_at",
+  },
+  {
+    Header: "Modified At",
+    accessor: "modified_at",
+  },
+  {
+    Header: "Active",
+    accessor: "active",
+  },
+  {
+    Header: "Failed Attempts",
+    accessor: "failed_attempts",
+  },
+  {
+    Header: "Locked Until",
+    accessor: "locked_until",
+  },
+];
