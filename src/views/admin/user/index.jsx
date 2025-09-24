@@ -26,8 +26,8 @@ const UserTables = () => {
         columnsData={columnsDataDevelopment}
         tableData={tableDataDevelopment}
         /> */}
-        <CheckTable columnsData={userDataComplex} tableData={tableDatauser} />
-        {/* <ComplexTable columnsData={columnsDataComplex}  tableData={tableDataComplex}  /> */}
+        {/* <CheckTable columnsData={userDataComplex} tableData={tableDatauser} /> */}
+        <ComplexTable columnsData={userDataComplex}  tableData={tableDatauser}  />
         {/* <ColumnsTable
           columnsData={columnsDataColumns}
           tableData={tableDataColumns}

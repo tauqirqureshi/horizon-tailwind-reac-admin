@@ -4,3 +4,7 @@
 - Added the `Updatete.txt` file to the project.
 - Updated `Updatete.txt` with today's prompt.
 - Started tracking daily progress in text files.
+//  24 -09 -2025 
+set the the user table with propare data 
+set the pagination  
+adde the profile  

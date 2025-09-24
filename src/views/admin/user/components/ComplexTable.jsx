@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import CardMenu from "components/card/CardMenu";
 import Card from "components/card";
 import Progress from "components/progress";
 import { MdCancel, MdCheckCircle, MdOutlineError } from "react-icons/md";
+import { getFilteredRowModel } from "@tanstack/react-table";
+
 
 import {
   createColumnHelper,
@@ -18,12 +20,58 @@ const columnHelper = createColumnHelper();
 export default function ComplexTable(props) {
   const { tableData } = props;
   const [sorting, setSorting] = React.useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+    
+  const rowsPerPage = 10;
   let defaultData = tableData;
   const columns = [
     columnHelper.accessor("name", {
       id: "name",
       header: () => (
         <p className="text-sm font-bold text-gray-600 dark:text-white">NAME</p>
+      ),
+      cell: (info) => {
+        const row = info.row.original;
+        return (
+          <div className="flex items-center space-x-3">
+            <img
+              src={row.profilePic}
+              alt={row.name}
+              className="w-8 h-8 rounded-full object-cover"
+            />
+            <p className="text-sm font-bold text-navy-700 dark:text-white">
+              {row.name}
+            </p>
+          </div>
+        );
+      },
+    }),
+    columnHelper.accessor("email", {
+      id: "email",
+      header: () => (
+        <p className="text-sm font-bold text-gray-600 dark:text-white">Email ID</p>
+      ),
+      cell: (info) => (
+        <p className="text-sm font-bold text-navy-700 dark:text-white">
+          {info.getValue()}
+        </p>
+      ),
+    }),
+    columnHelper.accessor("contactnumber", {
+      id: "contactnumber",
+      header: () => (
+        <p className="text-sm font-bold text-gray-600 dark:text-white">Contact Number</p>
+      ),
+      cell: (info) => (
+        <p className="text-sm font-bold text-navy-700 dark:text-white">
+          {info.getValue()}
+        </p>
+      ),
+    }),
+     columnHelper.accessor("contactnumber", {
+      id: "contactnumber",
+      header: () => (
+        <p className="text-sm font-bold text-gray-600 dark:text-white">Contact Number</p>
       ),
       cell: (info) => (
         <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -40,11 +88,11 @@ export default function ComplexTable(props) {
       ),
       cell: (info) => (
         <div className="flex items-center">
-          {info.getValue() === "Approved" ? (
+          {info.getValue() === 1 ? (
             <MdCheckCircle className="text-green-500 me-1 dark:text-green-300" />
-          ) : info.getValue() === "Disable" ? (
+          ) : info.getValue() === 2 ? (
             <MdCancel className="text-red-500 me-1 dark:text-red-300" />
-          ) : info.getValue() === "Error" ? (
+          ) : info.getValue() === 3 ? (
             <MdOutlineError className="text-amber-500 me-1 dark:text-amber-300" />
           ) : null}
           <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -53,10 +101,10 @@ export default function ComplexTable(props) {
         </div>
       ),
     }),
-    columnHelper.accessor("date", {
-      id: "date",
+    columnHelper.accessor("created_at", {
+      id: "created_at",
       header: () => (
-        <p className="text-sm font-bold text-gray-600 dark:text-white">DATE</p>
+        <p className="text-sm font-bold text-gray-600 dark:text-white">Created DATE</p>
       ),
       cell: (info) => (
         <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -64,19 +112,30 @@ export default function ComplexTable(props) {
         </p>
       ),
     }),
-    columnHelper.accessor("progress", {
-      id: "progress",
+    columnHelper.accessor("locked_until", {
+      id: "locked_until",
       header: () => (
-        <p className="text-sm font-bold text-gray-600 dark:text-white">
-          PROGRESS
-        </p>
+        <p className="text-sm font-bold text-gray-600 dark:text-white">Locked Until</p>
       ),
       cell: (info) => (
-        <div className="flex items-center">
-          <Progress width="w-[108px]" value={info.getValue()} />
-        </div>
+        <p className="text-sm font-bold text-navy-700 dark:text-white">
+          {info.getValue()}
+        </p>
       ),
     }),
+    // columnHelper.accessor("progress", {
+    //   id: "progress",
+    //   header: () => (
+    //     <p className="text-sm font-bold text-gray-600 dark:text-white">
+    //       PROGRESS
+    //     </p>
+    //   ),
+    //   cell: (info) => (
+    //     <div className="flex items-center">
+    //       <Progress width="w-[108px]" value={info.getValue()} />
+    //     </div>
+    //   ),
+    // }),
   ]; // eslint-disable-next-line
   const [data, setData] = React.useState(() => [...defaultData]);
   const table = useReactTable({
@@ -90,11 +149,19 @@ export default function ComplexTable(props) {
     getSortedRowModel: getSortedRowModel(),
     debugTable: true,
   });
+
+  // Calculate pagination
+  const indexOfLastRow = currentPage * rowsPerPage;
+  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const currentRows = tableData.slice(indexOfFirstRow, indexOfLastRow);
+
+  const totalPages = Math.ceil(tableData.length / rowsPerPage);
+
   return (
     <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
       <div className="relative flex items-center justify-between pt-4">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-          Complex Table
+          User Table
         </div>
         <CardMenu />
       </div>
@@ -131,7 +198,7 @@ export default function ComplexTable(props) {
           <tbody>
             {table
               .getRowModel()
-              .rows.slice(0, 5)
+              .rows.slice(0, rowsPerPage)
               .map((row) => {
                 return (
                   <tr key={row.id}>
@@ -153,6 +220,24 @@ export default function ComplexTable(props) {
               })}
           </tbody>
         </table>
+      </div>
+      {/* Pagination Controls */}
+      <div className="flex justify-center mt-4">
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+          className="px-3 py-1 mx-1 bg-gray-200 rounded"
+        >
+          Prev
+        </button>
+        <span className="px-3 py-1 mx-1">{currentPage} / {totalPages}</span>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+          className="px-3 py-1 mx-1 bg-gray-200 rounded"
+        >
+          Next
+        </button>
       </div>
     </Card>
   );
