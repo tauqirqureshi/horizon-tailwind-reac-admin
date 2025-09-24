@@ -2,6 +2,9 @@ import React, { useState, useMemo } from "react";
 import CardMenu from "components/card/CardMenu";
 import { MdEdit, MdDelete } from "react-icons/md";
 import { MdOfflinePin } from "react-icons/md";
+import { LuUser } from 'react-icons/lu';
+// import { LuUserRound } from 'react-icons/lu';
+
 
 import Card from "components/card";
 import {
@@ -36,11 +39,16 @@ export default function ComplexTable({ tableData }) {
         const row = info.row.original;
         return (
           <div className="flex items-center space-x-3">
-            <img
+            {row.profilePic ? (
+              <img
               src={row.profilePic}
               alt={row.name}
               className="w-8 h-8 rounded-full object-cover"
             />
+              
+            ) : (<div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                <LuUser className="text-gray-400 text-lg" />
+              </div>)}
             <p className="text-sm font-bold text-navy-700 dark:text-white">
               {row.name}
             </p>
