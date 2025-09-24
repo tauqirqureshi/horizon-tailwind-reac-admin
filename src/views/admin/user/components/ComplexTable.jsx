@@ -1,5 +1,8 @@
 import React, { useState, useMemo } from "react";
 import CardMenu from "components/card/CardMenu";
+import { MdEdit, MdDelete } from "react-icons/md";
+import { MdOfflinePin } from "react-icons/md";
+
 import Card from "components/card";
 import {
   MdCancel,
@@ -78,7 +81,7 @@ export default function ComplexTable({ tableData }) {
       cell: (info) => {
         const value = info.getValue();
         const icons = {
-          1: <MdCheckCircle className="text-green-500 me-1" />,
+          1: <MdOfflinePin className="text-green-500 me-1" />,
           2: <MdCancel className="text-red-500 me-1" />,
           3: <MdOutlineError className="text-amber-500 me-1" />,
         };
@@ -86,7 +89,7 @@ export default function ComplexTable({ tableData }) {
           <div className="flex items-center">
             {icons[value] || null}
             <p className="text-sm font-bold text-navy-700 dark:text-white">
-              {value}
+              { value === 1 ? "Active" : value === 2 ? "Inactive" : value === 3 ? "Error" : "Unknown" }
             </p>
           </div>
         );
@@ -129,8 +132,37 @@ export default function ComplexTable({ tableData }) {
         filterType: "text"
       }
     }),
+     columnHelper.display({
+    id: "actions",
+    header: "Actions",
+    cell: (info) => {
+      const row = info.row.original;
+
+      return (
+        <div className="flex gap-3">
+          <button onClick={() => handleEdit(row)} title="Edit">
+            <MdEdit className="text-blue-500 hover:text-blue-700 text-lg" />
+          </button>
+          <button onClick={() => handleDelete(row)} title="Delete">
+            <MdDelete className="text-red-500 hover:text-red-700 text-lg" />
+          </button>
+        </div>
+      );
+    }
+  })
   ], []);
 
+  const handleEdit = (row) => {
+  console.log("Edit clicked:", row);
+  // You can trigger a modal or navigate to an edit route here
+  };
+
+  const handleDelete = (row) => {
+  if (window.confirm(`Are you sure you want to delete ${row.name}?`)) {
+    console.log("Delete confirmed:", row);
+    // You can integrate API call or update state here
+  }
+};
   const data = useMemo(() => [...tableData], [tableData]);
 
   const table = useReactTable({
@@ -235,6 +267,7 @@ export default function ComplexTable({ tableData }) {
                 ))}
               </tr>
             ))}
+            
           </tbody>
         </table>
       </div>

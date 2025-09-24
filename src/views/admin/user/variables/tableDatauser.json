@@ -194,7 +194,9 @@
     "modified_at": "2023-07-22T09:30:00Z",
     "active": 0,
     "failed_attempts": 4,
-    "locked_until": "2025-09-30T12:00:00Z"
+    "locked_until": "2025-09-30T12:00:00Z",
+    "profilePic": "https://avatar.iran.liara.run/public/11"
+
   },
   {
     "name": "geroge blake",
@@ -219,7 +221,9 @@
     "modified_at": "2022-06-01T08:30:00Z",
     "active": 0,
     "failed_attempts": 6,
-    "locked_until": "2025-10-15T08:00:00Z"
+    "locked_until": "2025-10-15T08:00:00Z",
+    "profilePic": "https://avatar.iran.liara.run/public/11"
+
   },
   {
     "name": "iven grant",
