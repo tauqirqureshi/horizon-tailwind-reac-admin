@@ -7,7 +7,9 @@ import Profile from "views/admin/profile";
 import DataTables from "views/admin/tables";
 import RTLDefault from "views/rtl/default";
 import UserTables from "views/admin/user"; // Add this import
-
+import { FaUserGroup } from "react-icons/fa6";
+import { GoOrganization } from "react-icons/go";
+import { SiAwsorganizations } from "react-icons/si";
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
@@ -30,6 +32,27 @@ const routes = [
     component: <MainDashboard />,
   },
   {
+    name: "Meneges Users",
+    layout: "/admin",
+    icon: <FaUserGroup className="h-6 w-6" />,
+    path: "user-tables",
+    component: <UserTables />,
+  },
+  {
+    name: "Meneges Organization",
+    layout: "/admin",
+    icon: <GoOrganization className="h-6 w-6" />,
+    path: "organization-tables",
+    component: <UserTables />,
+  },
+  {
+    name: "Meneges Sub-Organization",
+    layout: "/admin",
+    icon: <SiAwsorganizations className="h-6 w-6" />,
+    path: "sub-org-tables",
+    component: <UserTables />,
+  },
+  {
     name: "NFT Marketplace",
     layout: "/admin",
     path: "nft-marketplace",
@@ -43,13 +66,6 @@ const routes = [
     icon: <MdBarChart className="h-6 w-6" />,
     path: "data-tables",
     component: <DataTables />,
-  },
-  {
-    name: "user Tables",
-    layout: "/admin",
-    icon: <MdBarChart className="h-6 w-6" />,
-    path: "user-tables",
-    component: <UserTables />,
   },
   {
     name: "Profile",
