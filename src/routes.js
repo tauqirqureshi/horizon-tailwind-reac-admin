@@ -7,6 +7,7 @@ import Profile from "views/admin/profile";
 import DataTables from "views/admin/tables";
 import RTLDefault from "views/rtl/default";
 import UserTables from "views/admin/user"; // Add this import
+import OrganizationTables from "views/admin/organization"; // Add this import
 import { FaUserGroup } from "react-icons/fa6";
 import { GoOrganization } from "react-icons/go";
 import { SiAwsorganizations } from "react-icons/si";
@@ -32,21 +33,21 @@ const routes = [
     component: <MainDashboard />,
   },
   {
-    name: "Meneges Users",
+    name: "Manage Users",
     layout: "/admin",
     icon: <FaUserGroup className="h-6 w-6" />,
     path: "user-tables",
     component: <UserTables />,
   },
   {
-    name: "Meneges Organization",
+    name: "Manage Organization",
     layout: "/admin",
     icon: <GoOrganization className="h-6 w-6" />,
     path: "organization-tables",
-    component: <UserTables />,
+    component: <OrganizationTables />,
   },
   {
-    name: "Meneges Sub-Organization",
+    name: "Manage Sub-Organization",
     layout: "/admin",
     icon: <SiAwsorganizations className="h-6 w-6" />,
     path: "sub-org-tables",
