@@ -1,15 +1,15 @@
-import CheckTable from "./components/CheckTable";
+// import CheckTable from "./components/CheckTable";
 
 import {
-  columnsDataDevelopment,
-  columnsDataCheck,
-  columnsDataColumns,
-  columnsDataComplex,
+  // columnsDataDevelopment,
+  // columnsDataCheck,
+  // columnsDataColumns,
+  // columnsDataComplex,
   userDataComplex,
 } from "./variables/columnsData";
-import tableDataDevelopment from "./variables/tableDataDevelopment.json";
-import tableDataCheck from "./variables/tableDataCheck.json";
-import tableDatauser from "./variables/tableDatauser.json"; 
+// import tableDataDevelopment from "./variables/tableDataDevelopment.json";
+// import tableDataCheck from "./variables/tableDataCheck.json";
+// import tableDatauser from "./variables/tableDatauser.json"; 
 import organizationData from "./variables/organzationData.json";
 import OrganzationTable from "./components/organzationTable";
 

@@ -4,6 +4,8 @@ import { MdEdit, MdDelete } from "react-icons/md";
 import { MdOfflinePin } from "react-icons/md";
 import { LuUser } from 'react-icons/lu';
 // import { LuUserRound } from 'react-icons/lu';
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+
 
 
 import Card from "components/card";
@@ -327,20 +329,22 @@ export default function ComplexTable({ tableData }) {
 
         {/* Prev/Next Buttons */}
         <div className="flex gap-2">
-          <button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          <MdChevronLeft onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
-          >
-            Prev
-          </button>
-          <button
+             className="ml-1 h-6 w-6 " />
+
+          <MdChevronRight 
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+             className="ml-1 h-6 w-6 " />
+
+          {/* <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
             className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
           >
             Next
-          </button>
+          </button> */}
         </div>
       </div>
     </Card>
