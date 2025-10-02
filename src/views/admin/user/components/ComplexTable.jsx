@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from "react";
-import CardMenu from "components/card/CardMenu";
 import { MdEdit, MdDelete,MdRemoveRedEye } from "react-icons/md";
 import { MdOfflinePin } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+
 import { LuUser } from 'react-icons/lu';
 // import { LuUserRound } from 'react-icons/lu';
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
@@ -29,6 +30,7 @@ import { format } from "date-fns";
 const columnHelper = createColumnHelper();
 
 export default function ComplexTable({ tableData }) {
+  const navigate = useNavigate();
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,6 +45,10 @@ export default function ComplexTable({ tableData }) {
     locked_until: null,
     profilePic: ""
   });
+
+   const handleView = (row) => {
+    navigate(`view-user/${row.id}`, { state: row }); 
+  };
 
 
   const handleAddUser = () => {
@@ -173,10 +179,10 @@ export default function ComplexTable({ tableData }) {
     header: "Actions",
     cell: (info) => {
       const row = info.row.original;
-
+      
       return (
         <div className="flex gap-3">
-          <button onClick={() => handleEdit(row)} title="view">
+          <button onClick={() => handleView (row)} title="view">
             <MdRemoveRedEye className="text-blue-500 hover:text-blue-700 text-lg" />
           </button>
           <button onClick={() => handleEdit(row)} title="Edit">

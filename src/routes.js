@@ -4,6 +4,7 @@ import React from "react";
 import MainDashboard from "views/admin/default";
 import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
+import ViewUser from "views/admin/user/components/viewuser"; // Ensure this path is correct
 import DataTables from "views/admin/tables";
 import RTLDefault from "views/rtl/default";
 import UserTables from "views/admin/user"; // Add this import
@@ -36,8 +37,15 @@ const routes = [
     name: "Manage Users",
     layout: "/admin",
     icon: <FaUserGroup className="h-6 w-6" />,
-    path: "user-tables",
+    path: "users",
     component: <UserTables />,
+  },
+  {
+    name: "View User",
+    layout: "/admin",
+    path: "users/view-user/:id",   
+    component: <ViewUser />,
+    hide: true,         
   },
   {
     name: "Manage Organization",

@@ -1,10 +1,6 @@
 import CheckTable from "./components/CheckTable";
 
 import {
-  columnsDataDevelopment,
-  columnsDataCheck,
-  columnsDataColumns,
-  columnsDataComplex,
   userDataComplex,
 } from "./variables/columnsData";
 import tableDataDevelopment from "./variables/tableDataDevelopment.json";
