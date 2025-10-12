@@ -8,6 +8,6 @@ function Card(props) {
       {children}
     </div>
   );
-}
+} 
 
 export default Card;

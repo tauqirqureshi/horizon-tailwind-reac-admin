@@ -1,6 +1,5 @@
 import React from "react";
-import avatar from "assets/img/avatars/avatar11.png";
-import banner from "assets/img/profile/banner.png";
+import banner from "assets/img/avatars/IllustrationLinkedInBanner2.jpg";
 import Userviewcard from "./userviewcard"
 import { useParams } from "react-router-dom"
 import tableDatauser from "../../variables/tableDatauser.json"
@@ -9,7 +8,7 @@ import tableDatauser from "../../variables/tableDatauser.json"
 const Userbanner = () => {
 
     const { id } = useParams()
-    const userData = tableDatauser.find((u) => u.id == id);
+    const userData = tableDatauser.find((u) => u.id = id);
     
     
   return (
@@ -54,6 +53,7 @@ const Userbanner = () => {
         </div>
       </div>
     </Userviewcard>
+    
   );
 };
 

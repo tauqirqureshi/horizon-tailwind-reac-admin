@@ -5,6 +5,11 @@
 // import Storage from "./components/Storage";
 // import Upload from "./components/Upload";
 import Userbanner from "./userbanner"; 
+import Userinfocard from "./userinfocard";
+import Settinguser from "./settinguser";
+import Docview from "./docview"; //  Add this import
+
+
 
 const ViewUser = () => {
   return (
@@ -24,18 +29,19 @@ const ViewUser = () => {
       </div>
       {/* all project & ... */}
 
-      <div className="grid h-full grid-cols-1 gap-5 lg:!grid-cols-12">
-        <div className="col-span-5 lg:col-span-6 lg:mb-0 3xl:col-span-4">
-          <Userbanner />
-        </div>
-        <div className="col-span-5 lg:col-span-6 lg:mb-0 3xl:col-span-5">
-          {/* <General /> */}
-        </div>
-
-        <div className="col-span-5 lg:col-span-12 lg:mb-0 3xl:!col-span-3">
-          {/* <Notification /> */}
+      <div className="grid h-full grid-cols-1 gap-12 lg:!grid-cols-12">
+        <div className="col-span-12 lg:col-span-12 lg:mb-0 3xl:col-span-4">
+          <Userinfocard />
         </div>
       </div>
+
+       <div className="grid h-full grid-cols-1 gap-12 lg:!grid-cols-12">
+        <div className="col-span-12 lg:col-span-12 lg:mb-0">
+          <Docview />
+        </div>
+      </div>
+
+      <Settinguser />
     </div>
   );
 };
