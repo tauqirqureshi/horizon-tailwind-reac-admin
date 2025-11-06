@@ -1,6 +1,7 @@
 
 [
   {
+    "id": "MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "Mind Go University",
     "profilePic": "https://avatar.iran.liara.run/public/1",
     "email": "info@mindgouni.edu",
@@ -15,6 +16,7 @@
     "modified_at": "2022-05-01T08:30:00Z"
   },
   {
+    "id": "MnwxMjA3fDB8MHxwaG90by1wYWdlfH494DB8fHx8",
     "name": "Bright Future Academy",
     "profilePic": "https://avatar.iran.liara.run/public/2",
     "email": "contact@brightfuture.ac.in",
@@ -29,6 +31,7 @@
     "modified_at": "2022-01-20T14:15:00Z"
   },
   {
+    "id": "949494894DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "NextGen Institute",
     "profilePic": "https://avatar.iran.liara.run/public/3",
     "email": "admin@nextgen.org",
@@ -43,6 +46,7 @@
     "modified_at": "2021-05-18T12:45:00Z"
   },
   {
+    "id": "MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx91ZDB8fHx8",
     "name": "SkillUp College",
     "profilePic": "https://avatar.iran.liara.run/public/4",
     "email": "hello@skillup.edu",
@@ -57,6 +61,7 @@
     "modified_at": "2021-12-10T07:30:00Z"
   },
   {
+    "id": "yrtuyrtu94DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "LearnFast School",
     "profilePic": "https://avatar.iran.liara.run/public/5",
     "email": "support@learnfast.in",
@@ -71,6 +76,7 @@
     "modified_at": "2020-12-24T09:00:00Z"
   },
   {
+    "id": "ertyerty94DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "ProEdge Academy",
     "profilePic": "https://avatar.iran.liara.run/public/6",
     "email": "contact@proedge.ac",
@@ -85,6 +91,7 @@
     "modified_at": "2021-06-15T10:00:00Z"
   },
   {
+    "id": "eyllllty94DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "Future Minds College",
     "profilePic": "https://avatar.iran.liara.run/public/7",
     "email": "info@futureminds.org",
@@ -99,6 +106,7 @@
     "modified_at": "2022-03-01T07:00:00Z"
   },
   {
+    "id": "uturty94DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "Innovate Academy",
     "profilePic": "https://avatar.iran.liara.run/public/8",
     "email": "hello@innovate.edu",
@@ -112,7 +120,9 @@
     "created_at": "2019-12-12T12:00:00Z",
     "modified_at": "2020-01-15T08:00:00Z"
   },
-  {
+    {
+    "id": "yeyllllty94DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
+
     "name": "Elite Scholars Hub",
     "profilePic": "https://avatar.iran.liara.run/public/9",
     "email": "admin@elitescholars.edu",
@@ -126,7 +136,8 @@
     "created_at": "2022-05-05T10:15:00Z",
     "modified_at": "2022-08-01T11:00:00Z"
   },
-  {
+    {
+    "id": "lopplllty94DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "TechBrains Academy",
     "profilePic": "https://avatar.iran.liara.run/public/10",
     "email": "contact@techbrains.com",
@@ -140,7 +151,8 @@
     "created_at": "2020-07-20T07:30:00Z",
     "modified_at": "2021-03-12T08:45:00Z"
   },
-  {
+    {
+    "id": "uiiullty94DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "SmartEdge University",
     "profilePic": "https://avatar.iran.liara.run/public/11",
     "email": "admin@smartedge.in",
@@ -154,7 +166,8 @@
     "created_at": "2021-11-05T06:00:00Z",
     "modified_at": "2022-01-10T08:30:00Z"
   },
-  {
+    {
+    "id": "trymkkllty94DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "FuturePath School",
     "profilePic": "https://avatar.iran.liara.run/public/12",
     "email": "info@futurepath.edu",
@@ -168,7 +181,8 @@
     "created_at": "2020-10-10T07:00:00Z",
     "modified_at": "2021-01-10T09:00:00Z"
   },
-  {
+    {
+    "id": "krmmellty94DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
     "name": "Excel Minds College",
     "profilePic": "https://avatar.iran.liara.run/public/13",
     "email": "admin@excelminds.org",

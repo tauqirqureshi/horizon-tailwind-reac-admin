@@ -5,13 +5,14 @@ import MainDashboard from "views/admin/default";
 import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
 import ViewUser from "views/admin/user/components/viewuser"; // Ensure this path is correct
-import DataTables from "views/admin/tables";
+import DataTables from "views/admin/tables";  
 import RTLDefault from "views/rtl/default";
 import UserTables from "views/admin/user"; // Add this import
 import OrganizationTables from "views/admin/organization"; // Add this import
-import { FaUserGroup } from "react-icons/fa6";
+import { FaUserGroup } from "react-icons/fa6"; 
 import { GoOrganization } from "react-icons/go";
 import { SiAwsorganizations } from "react-icons/si";
+import  OrganizationView from "views/admin/organization/components/organizationview";
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
@@ -46,6 +47,15 @@ const routes = [
     path: "users/view-user/:id",   
     component: <ViewUser />,
     hide: true,         
+  },
+  {
+    name: "View Organization",
+    layout: "/admin",
+    icon: <GoOrganization className="h-6 w-6" />,
+    path: "organization-tables/view-organization/:id",
+    component: <OrganizationView />,
+    hide: true,         
+
   },
   {
     name: "Manage Organization",

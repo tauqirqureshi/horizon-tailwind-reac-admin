@@ -98,7 +98,7 @@ const UserInfoMultiView = () => {
                 className="text-base font-medium text-brand-500 hover:text-brand-500 dark:text-white"
                 href=" "
               >
-                <a href=" ">setting</a>
+                {/* <a href=" ">setting</a> */}
               </a>
             </li>
           </ul>

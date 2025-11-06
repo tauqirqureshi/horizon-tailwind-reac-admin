@@ -30,7 +30,7 @@ const ViewUser = () => {
       {/* all project & ... */}
 
       <div className="grid h-full grid-cols-1 gap-12 lg:!grid-cols-12">
-        <div className="col-span-12 lg:col-span-12 lg:mb-0 3xl:col-span-4">
+        <div className="col-span-12 lg:col-span-12 lg:mb-0">
           <Userinfocard />
         </div>
       </div>

@@ -327,71 +327,71 @@ export default function ComplexTable({ tableData }) {
 
       {/* Pagination Controls */}
       {/* Pagination Controls */}
-<div className="flex flex-col sm:flex-row items-center justify-between mt-6 gap-4">
-  {/* Page info */}
-  <div className="text-sm font-medium text-gray-700 dark:text-gray-300">
-    Page {currentPage} of {totalPages}
-  </div>
+    <div className="flex flex-col sm:flex-row items-center justify-between mt-6 gap-4">
+      {/* Page info */}
+      <div className="text-sm font-medium text-gray-700 dark:text-gray-300">
+        Page {currentPage} of {totalPages}
+      </div>
 
-  {/* Go to page */}
-  <div className="flex items-center gap-2">
-    <label htmlFor="go-to-page" className="text-sm text-gray-700 dark:text-gray-300">
-      Go to:
-    </label>
-    <input
-      type="number"
-      min={1}
-      max={totalPages}
-      value={currentPage}
-      onChange={(e) => {
-        const page = e.target.value ? Number(e.target.value) : 1;
-        setCurrentPage(Math.min(Math.max(page, 1), totalPages));
-      }}
-      className="w-16 px-3 py-1.5 rounded-lg border border-gray-300 dark:border-navy-700 dark:bg-navy-800 dark:text-white text-sm focus:ring-2 focus:ring-brand-500 outline-none"
-    />
-  </div>
+      {/* Go to page */}
+      <div className="flex items-center gap-2">
+        <label htmlFor="go-to-page" className="text-sm text-gray-700 dark:text-gray-300">
+          Go to:
+        </label>
+        <input
+          type="number"
+          min={1}
+          max={totalPages}
+          value={currentPage}
+          onChange={(e) => {
+            const page = e.target.value ? Number(e.target.value) : 1;
+            setCurrentPage(Math.min(Math.max(page, 1), totalPages));
+          }}
+          className="w-16 px-3 py-1.5 rounded-lg border border-gray-300 dark:border-navy-700 dark:bg-navy-800 dark:text-white text-sm focus:ring-2 focus:ring-brand-500 outline-none"
+        />
+      </div>
 
-  {/* Rows per page */}
-  <div className="flex items-center gap-2">
-    <label htmlFor="page-size" className="text-sm text-gray-700 dark:text-gray-300">
-      Show
-    </label>
-    <select
-      id="page-size"
-      value={rowsPerPage}
-      onChange={(e) => {
-        setRowsPerPage(Number(e.target.value));
-        setCurrentPage(1);
-      }}
-      className="px-3 py-1.5 rounded-lg border border-gray-300 dark:border-navy-700 dark:bg-navy-800 dark:text-white text-sm focus:ring-2 focus:ring-brand-500 outline-none"
-    >
-      {[5, 10, 20, 50, 100].map((pageSize) => (
-        <option key={pageSize} value={pageSize}>
-          {pageSize}
-        </option>
-      ))}
-    </select>
-  </div>
+      {/* Rows per page */}
+      <div className="flex items-center gap-2">
+        <label htmlFor="page-size" className="text-sm text-gray-700 dark:text-gray-300">
+          Show
+        </label>
+        <select
+          id="page-size"
+          value={rowsPerPage}
+          onChange={(e) => {
+            setRowsPerPage(Number(e.target.value));
+            setCurrentPage(1);
+          }}
+          className="px-3 py-1.5 rounded-lg border border-gray-300 dark:border-navy-700 dark:bg-navy-800 dark:text-white text-sm focus:ring-2 focus:ring-brand-500 outline-none"
+        >
+          {[5, 10, 20, 50, 100].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              {pageSize}
+            </option>
+          ))}
+        </select>
+      </div>
 
-  {/* Prev/Next Buttons */}
-  <div className="flex items-center gap-3">
-    <button
-      onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-      disabled={currentPage === 1}
-      className="px-4 py-2 rounded-lg bg-brand-900 text-white hover:bg-brand-800 shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed"
-    >
-      <MdChevronLeft className="h-5 w-5" />
-    </button>
+      {/* Prev/Next Buttons */}
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+          className="px-4 py-2 rounded-lg bg-brand-900 text-white hover:bg-brand-800 shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <MdChevronLeft className="h-5 w-5" />
+        </button>
 
-    <button
-      onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-      disabled={currentPage === totalPages}
-      className="px-4 py-2 rounded-lg bg-brand-900 text-white hover:bg-brand-800 shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed"
-    >
-      <MdChevronRight className="h-5 w-5" />
-    </button>
-  </div>
-</div>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+          className="px-4 py-2 rounded-lg bg-brand-900 text-white hover:bg-brand-800 shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <MdChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+    </div>
 
 
        {isModalOpen && (
