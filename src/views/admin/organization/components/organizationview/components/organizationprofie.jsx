@@ -5,7 +5,7 @@ import Card from "components/card";
 import React from "react";
 import Organizationlogo from "assets/img/avatars/Organizationlogo.png";
 
-import { BsCloudCheck } from "react-icons/bs";
+// import { BsCloudCheck } from "react-icons/bs";
 const OrganizationProfie = () => {
   return (
     <Card extra={"w-full h-full p-4 mb-4"}>
@@ -21,7 +21,7 @@ const OrganizationProfie = () => {
         {/* </div> */}
         </div>
         <h4 className="mb-px mt-3 text-2xl font-bold text-navy-700 dark:text-white">
-          Mind Go University
+          Mind Go University (ORG0002)
         </h4>
         <p className="px-5 text-center text-base font-normal text-gray-600 md:!px-0 xl:!px-8">
           Supervise your drive space in the easiest way
