@@ -13,6 +13,8 @@ import { FaUserGroup } from "react-icons/fa6";
 import { GoOrganization } from "react-icons/go";
 import { SiAwsorganizations } from "react-icons/si";
 import  OrganizationView from "views/admin/organization/components/organizationview";
+import SubOrganization from "views/admin/suborganization";
+
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
@@ -69,7 +71,7 @@ const routes = [
     layout: "/admin",
     icon: <SiAwsorganizations className="h-6 w-6" />,
     path: "sub-org-tables",
-    component: <UserTables />,
+    component: <SubOrganization />,
   },
   {
     name: "NFT Marketplace",

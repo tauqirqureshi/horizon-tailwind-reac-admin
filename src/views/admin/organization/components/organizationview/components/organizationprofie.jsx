@@ -38,7 +38,7 @@ const OrganizationProfie = () => {
           </div>
           <div className="flex flex-col items-center justify-center">
             <p className="text-2xl font-bold text-navy-700 dark:text-white">
-              9.7K
+              9.7K 
             </p>
             <p className="text-sm font-normal text-gray-600">Student (current active)</p>
           </div>
