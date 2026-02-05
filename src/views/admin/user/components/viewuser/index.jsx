@@ -8,7 +8,7 @@ import Userbanner from "./userbanner";
 import Userinfocard from "./userinfocard";
 import Settinguser from "./settinguser";
 import Docview from "./docview"; //  Add this import
-
+import UserAuditLogs from "./UserAuditLogs"; // Add this import
 
 
 const ViewUser = () => {
@@ -42,6 +42,14 @@ const ViewUser = () => {
       </div>
 
       <Settinguser />
+
+
+      <div className="grid h-full grid-cols-1 gap-12 lg:!grid-cols-12">
+        <div className="col-span-12 lg:col-span-12 lg:mb-0">
+          <UserAuditLogs />
+        </div>
+      </div>
+
     </div>
   );
 };

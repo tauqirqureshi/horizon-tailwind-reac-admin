@@ -14,7 +14,7 @@ import { GoOrganization } from "react-icons/go";
 import { SiAwsorganizations } from "react-icons/si";
 import  OrganizationView from "views/admin/organization/components/organizationview";
 import SubOrganization from "views/admin/suborganization";
-
+import SubOrganizationView from "views/admin/suborganization/components/suborganizationview";
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
@@ -27,6 +27,11 @@ import {
   MdPerson,
   MdLock,
 } from "react-icons/md";
+import EditSubOrganization from "views/admin/suborganization/components/suborganizationview/EditSubOrganization";
+import SubOrganizationSettings from "views/admin/suborganization/components/suborganizationview/SubOrganizationSettings";
+import OrganizationSystemModules from "views/admin/organization/components/Permissions/Org-systemmodules/OrganizationSystemModules";
+import OrganizationRoles from "views/admin/organization/components/Permissions/Org-manageRole/OrganizationRoles";
+import AuditActivityLogs from "views/admin/organization/components/Permissions/AuditActivityLogs/AuditActivityLogs";
 
 const routes = [
   {
@@ -60,6 +65,13 @@ const routes = [
 
   },
   {
+    name: "Organization Member",
+    layout: "/admin",
+    path: "organization-tables/user-organization/:id",   
+    component: <UserTables />,
+    hide: true,         
+  },
+  {
     name: "Manage Organization",
     layout: "/admin",
     icon: <GoOrganization className="h-6 w-6" />,
@@ -67,11 +79,64 @@ const routes = [
     component: <OrganizationTables />,
   },
   {
+    name: "Organization Manage Role & Staff",
+    layout: "/admin",
+    icon: <GoOrganization className="h-6 w-6" />,
+    path: "organization-tables/Roles-organization/:id",
+    component: <OrganizationRoles />,
+    hide: true,         
+
+  },
+  {
+    name: "Organization Access & Security",
+    layout: "/admin",
+    icon: <GoOrganization className="h-6 w-6" />,
+    path: "organization-tables/systemodules-organization/:id",
+    component: <OrganizationSystemModules />,
+    hide: true,         
+
+  },
+  {
+    name: "Organization Audit & Activity Logs",
+    layout: "/admin",
+    // icon: <GoOrganization className="h-6 w-6" />,
+    path: "organization-tables/logactivity-organization/:id",
+    component: <AuditActivityLogs />,
+    hide: true,         
+
+  },
+  {
     name: "Manage Sub-Organization",
     layout: "/admin",
     icon: <SiAwsorganizations className="h-6 w-6" />,
     path: "sub-org-tables",
     component: <SubOrganization />,
+  },
+  {
+    name: "View Sub-Organization",
+    layout: "/admin",
+    icon: <SiAwsorganizations className="h-6 w-6" />,
+    path: "sub-org-tables/view-sub-organization/:id",
+    component: <SubOrganizationView />,
+    hide: true, 
+  },
+  {
+    name: "edit Sub-Organization",
+    layout: "/admin",
+    icon: <SiAwsorganizations className="h-6 w-6" />, 
+    component: <EditSubOrganization />,
+    path: "sub-org-tables/edit-sub-organization/:id",
+    hide: true,
+  },
+
+  
+  {
+    name: "settings Sub-Organization",
+    layout: "/admin",
+    icon: <SiAwsorganizations className="h-6 w-6" />, 
+    component: <SubOrganizationSettings />,
+    path: "sub-org-tables/sub-organization-settings/:id",
+    hide: true,
   },
   {
     name: "NFT Marketplace",

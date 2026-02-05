@@ -40,7 +40,7 @@ export default function SubOrganizationTable({ tableData }) {
 
    const handleView = (row) => {
     console.log("View clicked:", row);
-    navigate(`view-organization/${row.id}`, { state: row }); 
+    navigate(`view-sub-organization/${row.id}`, { state: row }); 
   };
 
   const columns = useMemo(() => [
