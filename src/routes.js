@@ -32,6 +32,7 @@ import SubOrganizationSettings from "views/admin/suborganization/components/subo
 import OrganizationSystemModules from "views/admin/organization/components/Permissions/Org-systemmodules/OrganizationSystemModules";
 import OrganizationRoles from "views/admin/organization/components/Permissions/Org-manageRole/OrganizationRoles";
 import AuditActivityLogs from "views/admin/organization/components/Permissions/AuditActivityLogs/AuditActivityLogs";
+import SuperAdminDashboard from "views/admin/superadmindashboard";
 
 const routes = [
   {
@@ -47,6 +48,13 @@ const routes = [
     icon: <FaUserGroup className="h-6 w-6" />,
     path: "users",
     component: <UserTables />,
+  },
+  {
+    name: "Super Admin Dashboard",
+    layout: "/admin",
+    icon: <FaUserGroup className="h-6 w-6" />,
+    path: "superadmin-dashboard",
+    component: <SuperAdminDashboard />,
   },
   {
     name: "View User",

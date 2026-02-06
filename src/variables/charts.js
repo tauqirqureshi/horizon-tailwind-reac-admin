@@ -150,17 +150,17 @@ export const pieChartData = [63, 25, 12];
 
 export const barChartDataWeeklyRevenue = [
   {
-    name: "PRODUCT A",
+    name: "Mind Go University",
     data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
     color: "#6AD2Fa",
   },
   {
-    name: "PRODUCT B",
+    name: "Bright Future Academy",
     data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
     color: "#4318FF",
   },
   {
-    name: "PRODUCT C",
+    name: "LearnFast School",
     data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
     color: "#EFF4FB",
   },
@@ -258,14 +258,19 @@ export const barChartOptionsWeeklyRevenue = {
 
 export const lineChartDataTotalSpent = [
   {
-    name: "Revenue",
-    data: [50, 64, 48, 66, 49, 68],
+    name: "Organizations",
+    data: [40, 34, 68, 66, 69, 28],
     color: "#4318FF",
   },
   {
-    name: "Profit",
-    data: [30, 40, 24, 46, 20, 46],
+    name: "active users",
+    data: [20, 40, 24, 76, 20, 46],
     color: "#6AD2FF",
+  },
+    {
+    name: "inactive users",
+    data: [10, 20, 22, 36, 50, 36],
+    color: "#cb6c44ff",
   },
 ];
 

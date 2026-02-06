@@ -4,10 +4,10 @@ import TotalSpent from "views/admin/default/components/TotalSpent";
 import PieChartCard from "views/admin/default/components/PieChartCard";
 import { IoMdHome } from "react-icons/io";
 import { IoDocuments } from "react-icons/io5";
-import { MdBarChart, MdDashboard } from "react-icons/md";
+import { MdBarChart, MdDashboard ,MdOutlineNotificationsActive } from "react-icons/md";
 
 import { columnsDataCheck, columnsDataComplex } from "./variables/columnsData";
-
+import { FaUsersLine } from "react-icons/fa6";
 import Widget from "components/widget/Widget";
 import CheckTable from "views/admin/default/components/CheckTable";
 import ComplexTable from "views/admin/default/components/ComplexTable";
@@ -16,6 +16,16 @@ import TaskCard from "views/admin/default/components/TaskCard";
 import tableDataCheck from "./variables/tableDataCheck.json";
 import tableDataComplex from "./variables/tableDataComplex.json";
 
+import { BiSolidBuildingHouse   } from "react-icons/bi";
+import { LiaSchoolSolid } from "react-icons/lia";
+import {
+  HiOutlineShieldCheck,
+} from "react-icons/hi";
+
+
+import { PiStudentFill } from "react-icons/pi";
+import { GrUserAdmin } from "react-icons/gr";
+import { FaChalkboardTeacher } from "react-icons/fa";
 const Dashboard = () => {
   return (
     <div>
@@ -23,35 +33,38 @@ const Dashboard = () => {
 
       <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6">
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"Earnings"}
-          subtitle={"$340.5"}
+          icon={<BiSolidBuildingHouse className="h-8 w-8" />}
+          title={"Organizations : Active / Total"}
+          subtitle={"124 / 150"}
         />
         <Widget
-          icon={<IoDocuments className="h-6 w-6" />}
-          title={"Spend this month"}
-          subtitle={"$642.39"}
+          icon={<LiaSchoolSolid  className="h-7 w-7" />}
+          title="Schools"
+          subtitle="862"
+        />
+
+        <Widget
+          icon={<PiStudentFill className="h-7 w-7" />}
+          title={"Students"}
+          subtitle={"1,248,930"}
+        />
+
+        <Widget
+          icon={<FaChalkboardTeacher className="h-7 w-7" />}
+          title={"Teachers"}
+          subtitle={"78,421"}
+        />
+         <Widget
+          icon={<GrUserAdmin  className="h-7 w-7" />}
+          title={"Admins"}
+          subtitle={"480"}
         />
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"Sales"}
-          subtitle={"$574.34"}
+          icon={<FaUsersLine className="h-7 w-7" />}
+          title={"Active Users (Today)"}
+          subtitle={"312,883"}
         />
-        <Widget
-          icon={<MdDashboard className="h-6 w-6" />}
-          title={"Your Balance"}
-          subtitle={"$1,000"}
-        />
-        <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"New Tasks"}
-          subtitle={"145"}
-        />
-        <Widget
-          icon={<IoMdHome className="h-6 w-6" />}
-          title={"Total Projects"}
-          subtitle={"$2433"}
-        />
+
       </div>
 
       {/* Charts */}
