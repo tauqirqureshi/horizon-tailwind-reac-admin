@@ -44,17 +44,39 @@ export default function Admin(props) {
     }
     return activeNavbar;
   };
-  const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
-        return (
-          <Route path={`/${prop.path}`} element={prop.component} key={key} />
-        );
-      } else {
+const getRoutes = (routes) => {
+  return routes.map((route, key) => {
+    // 🔹 HANDLE SUB ROUTES
+    if (route.collapse && route.items) {
+      return route.items.map((subRoute, subKey) => {
+        if (subRoute.layout === "/admin") {
+          return (
+            <Route
+              path={`/${subRoute.path}`}
+              element={subRoute.component}
+              key={`${key}-${subKey}`}
+            />
+          );
+        }
         return null;
-      }
-    });
-  };
+      });
+    }
+
+    // 🔹 NORMAL ROUTES
+    if (route.layout === "/admin") {
+      return (
+        <Route
+          path={`/${route.path}`}
+          element={route.component}
+          key={key}
+        />
+      );
+    }
+
+    return null;
+  });
+};
+
 
   document.documentElement.dir = "ltr";
   return (

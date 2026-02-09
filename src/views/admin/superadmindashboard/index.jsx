@@ -55,9 +55,9 @@ const SuperAdminDashboard = () => {
 
       {/* Page Header */}
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Super Admin Dashboard</h1>
+        {/* <h1 className="text-2xl font-bold">Super Admin Dashboard</h1> */}
         <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">
-          System Healthy
+          {/* System Healthy */}
         </span>
       </div>
 

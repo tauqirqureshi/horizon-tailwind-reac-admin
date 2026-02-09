@@ -35,26 +35,66 @@ import AuditActivityLogs from "views/admin/organization/components/Permissions/A
 import SuperAdminDashboard from "views/admin/superadmindashboard";
 
 const routes = [
-  {
-    name: "Main Dashboard",
+  // {
+  //   name: "Main Dashboard",
+  //   layout: "/admin",
+  //   path: "default",
+  //   icon: <MdHome className="h-6 w-6" />,
+  //   component: <MainDashboard />,
+  // },
+    {
+    name: "Dashboard",
     layout: "/admin",
-    path: "default",
     icon: <MdHome className="h-6 w-6" />,
-    component: <MainDashboard />,
+    collapse: true,
+    items: [
+      {
+        name: "Main Dashboard",
+        layout: "/admin",
+        path: "dashboard/main",
+        icon: <MdHome className="h-6 w-6" />,
+        component: <MainDashboard />,
+      },
+      {
+        name: "Super Dashboard",
+        layout: "/admin",
+        path: "dashboard/super-admin",
+        icon: <MdHome className="h-6 w-6" />,
+        component: <SuperAdminDashboard />,
+      },
+    ],
   },
+  {
+    name: "Organization Management",
+    layout: "/admin",
+    collapse: true,
+    icon: <GoOrganization className="h-6 w-6" />,
+    path: "organization-tables",
+    // component: <OrganizationTables />,
+    items: [
+      {
+        name: "Main Organization",
+        layout: "/admin",
+        path: "organization-tables",
+        icon: <MdHome className="h-6 w-6" />,
+        component: <OrganizationTables />,
+      },
+      {
+        name: "Sub Organization",
+        layout: "/admin",
+        path: "sub-org-tables",
+        icon: <MdHome className="h-6 w-6" />,
+        component: <SubOrganization />,
+      },
+    ],
+  },
+  
   {
     name: "Manage Users",
     layout: "/admin",
     icon: <FaUserGroup className="h-6 w-6" />,
     path: "users",
     component: <UserTables />,
-  },
-  {
-    name: "Super Admin Dashboard",
-    layout: "/admin",
-    icon: <FaUserGroup className="h-6 w-6" />,
-    path: "superadmin-dashboard",
-    component: <SuperAdminDashboard />,
   },
   {
     name: "View User",
@@ -78,13 +118,6 @@ const routes = [
     path: "organization-tables/user-organization/:id",   
     component: <UserTables />,
     hide: true,         
-  },
-  {
-    name: "Manage Organization",
-    layout: "/admin",
-    icon: <GoOrganization className="h-6 w-6" />,
-    path: "organization-tables",
-    component: <OrganizationTables />,
   },
   {
     name: "Organization Manage Role & Staff",
@@ -112,13 +145,6 @@ const routes = [
     component: <AuditActivityLogs />,
     hide: true,         
 
-  },
-  {
-    name: "Manage Sub-Organization",
-    layout: "/admin",
-    icon: <SiAwsorganizations className="h-6 w-6" />,
-    path: "sub-org-tables",
-    component: <SubOrganization />,
   },
   {
     name: "View Sub-Organization",

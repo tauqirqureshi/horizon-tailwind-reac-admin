@@ -1,64 +1,89 @@
 /* eslint-disable */
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import DashIcon from "components/icons/DashIcon";
-// chakra imports
+import { NavLink, useLocation } from "react-router-dom";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
-export function SidebarLinks(props) {
-  // Chakra color mode
-  let location = useLocation();
+const Links = ({ routes }) => {
+  const location = useLocation();
 
-  const { routes } = props;
-
-  // verifies if routeName is the one active (in browser input)
-  const activeRoute = (routeName) => {
-    return location.pathname.includes(routeName);
+  const activeRoute = (routePath) => {
+    return location.pathname.includes(routePath);
   };
 
-  const createLinks = (routes) => {
-    return routes.map((route, index) => {
-      if (
-        route.layout === "/admin" ||
-        route.layout === "/auth" ||
-        route.layout === "/rtl"
-      ) {
-        return (
-          <Link key={index} to={route.layout + "/" + route.path}>
-            <div className="relative mb-3 flex hover:cursor-pointer">
-              <li
-                className="my-[3px] flex cursor-pointer items-center px-8"
-                key={index}
-              >
-                <span
-                  className={`${
-                    activeRoute(route.path) === true
-                      ? "font-bold text-brand-500 dark:text-white"
-                      : "font-medium text-gray-600"
-                  }`}
-                >
-                  {route.icon ? route.icon : <DashIcon />}{" "}
-                </span>
-                <p
-                  className={`leading-1 ml-4 flex ${
-                    activeRoute(route.path) === true
-                      ? "font-bold text-navy-700 dark:text-white"
-                      : "font-medium text-gray-600"
-                  }`}
-                >
-                  {route.name}
-                </p>
-              </li>
-              {activeRoute(route.path) ? (
-                <div class="absolute right-0 top-px h-9 w-1 rounded-lg bg-brand-500 dark:bg-brand-400" />
-              ) : null}
+  return routes.map((route, index) => {
+    // =========================
+    // COLLAPSIBLE (SUB ROUTES)
+    // =========================
+    if (route.collapse) {
+      const isOpen = route.items.some((item) =>
+        activeRoute(item.path)
+      );
+
+      return (
+        <li key={index} className="mb-2">
+          {/* Parent */}
+          <div
+            className={`flex cursor-pointer items-center justify-between px-4 py-3 transition-colors ${
+              isOpen
+                ? "text-brand-500"
+                : "text-navy-700 dark:text-white"
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              {route.icon}
+              <span className="font-medium">{route.name}</span>
             </div>
-          </Link>
-        );
-      }
-    });
-  };
-  // BRAND
-  return createLinks(routes);
-}
+            <MdKeyboardArrowDown
+              className={`transition-transform ${
+                isOpen ? "rotate-180" : ""
+              }`}
+            />
+          </div>
 
-export default SidebarLinks;
+          {/* Children */}
+          <ul className="ml-6 mt-2 border-l border-gray-200 dark:border-white/10">
+            {route.items.map((item, i) => (
+              <li key={i}>
+                <NavLink
+                  to={`${item.layout}/${item.path}`}
+                  className={({ isActive }) =>
+                    `flex items-center pl-4 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "text-brand-500"
+                        : "text-navy-700 dark:text-white/70 hover:text-brand-500"
+                    }`
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </li>
+      );
+    }
+
+    // =========================
+    // NORMAL ROUTES
+    // =========================
+    return (
+      <li key={index}>
+        <NavLink
+          to={`${route.layout}/${route.path}`}
+          className={({ isActive }) =>
+            `flex items-center gap-3 px-4 py-3 font-medium transition-colors ${
+              isActive
+                ? "text-brand-500"
+                : "text-navy-700 dark:text-white"
+            }`
+          }
+        >
+          {route.icon}
+          {route.name}
+        </NavLink>
+      </li>
+    );
+  });
+};
+
+export default Links;
